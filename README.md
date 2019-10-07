@@ -60,7 +60,7 @@ exports.handler = function (event, context) { //eslint-disable-line
   var params = {
     Image: {
       S3Object: {
-        Bucket: "rtrekognitionstorage-10-05-2019-dev", 
+        Bucket: process.env.BUCKET, 
         Name: "public/" + event.arguments.imageKey
       }
     }, 

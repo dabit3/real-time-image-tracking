@@ -1,7 +1,6 @@
 const AWS = require('aws-sdk')
 AWS.config.update({region: 'us-east-2'})
-var rekognition = new AWS.Rekognition()
-
+const rekognition = new AWS.Rekognition()
 const axios = require('axios')
 const gql = require('graphql-tag')
 const graphql = require('graphql')
@@ -20,7 +19,7 @@ exports.handler = function (event, context) { //eslint-disable-line
   var params = {
     Image: {
       S3Object: {
-        Bucket: "rtrekognitionstorage-10-05-2019-dev", 
+        Bucket: process.env.BUCKET, 
         Name: "public/" + event.arguments.imageKey
       }
     }, 
