@@ -32,7 +32,7 @@ type ImageData @model
 }
 
 type Query {
-	process(imageKey: String!): ImageData @function(name: "rekognitionfunction-${env}")
+  process(imageKey: String!): ImageData @function(name: "rekognitionfunction-${env}")
 }
 ```
 
