@@ -152,7 +152,7 @@ class Detect extends React.Component {
             height: !this.state.isSnapped || !this.state.showCamera ? '0px' : this.state.streamHeight
           }} id="canvas" width={this.state.streamWidth} height={this.state.streamHeight}></canvas>
         <button style={buttonStyle} onClick={this.startTracking}>Start Tracking</button>
-        <button style={buttonStyle} onClick={this.cancelTracking}>Stop Tracking</button>
+        <button style={stopTrackingButton} onClick={this.cancelTracking}>Stop Tracking</button>
       </div>
     )
   }
@@ -161,7 +161,8 @@ class Detect extends React.Component {
 
 
 const buttonStyle = {
-  padding: '16px 50px',
+  padding: '11px 40px',
+  fontSize: 16,
   outline: 'none',
   border: 'none',
   backgroundColor: 'rgba(255, 255, 255, .1)',
@@ -169,6 +170,12 @@ const buttonStyle = {
   marginTop: 10,
   marginRight: 5,
   cursor: 'pointer'
+}
+
+const stopTrackingButton = {
+  ...buttonStyle,
+  backgroundColor: '#d73132',
+  color: '#1c2b34'
 }
 
 function DetectWithContext(props) {
