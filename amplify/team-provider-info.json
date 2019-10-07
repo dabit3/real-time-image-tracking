@@ -1,0 +1,19 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "rt-image-rekognition-dev-20191005033819-authRole",
+            "UnauthRoleArn": "arn:aws:iam::557458351015:role/rt-image-rekognition-dev-20191005033819-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::557458351015:role/rt-image-rekognition-dev-20191005033819-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "rt-image-rekognition-dev-20191005033819-deployment",
+            "UnauthRoleName": "rt-image-rekognition-dev-20191005033819-unauthRole",
+            "StackName": "rt-image-rekognition-dev-20191005033819",
+            "StackId": "arn:aws:cloudformation:us-east-2:557458351015:stack/rt-image-rekognition-dev-20191005033819/4032cf70-e75c-11e9-855a-066dd16eed5a"
+        },
+        "categories": {
+            "auth": {
+                "rtimagerekognitionc3a8e582": {}
+            }
+        }
+    }
+}

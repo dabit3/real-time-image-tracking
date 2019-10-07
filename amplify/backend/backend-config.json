@@ -1,0 +1,47 @@
+{
+	"auth": {
+		"rtimagerekognitionc3a8e582": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	},
+	"api": {
+		"rtimgrekognition": {
+			"service": "AppSync",
+			"providerPlugin": "awscloudformation",
+			"output": {
+				"authConfig": {
+					"additionalAuthenticationProviders": [
+						{
+							"authenticationType": "API_KEY",
+							"apiKeyConfig": {
+								"description": "lambdakey",
+								"apiKeyExpirationDays": "364"
+							}
+						}
+					],
+					"defaultAuthentication": {
+						"authenticationType": "AMAZON_COGNITO_USER_POOLS",
+						"userPoolConfig": {
+							"userPoolId": "authrtimagerekognitionc3a8e582"
+						}
+					}
+				}
+			}
+		}
+	},
+	"function": {
+		"rekognitionfunction": {
+			"service": "Lambda",
+			"providerPlugin": "awscloudformation",
+			"build": true
+		}
+	},
+	"storage": {
+		"rtrekognitionstorage": {
+			"service": "S3",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}

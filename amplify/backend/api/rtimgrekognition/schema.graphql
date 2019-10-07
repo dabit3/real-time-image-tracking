@@ -1,0 +1,15 @@
+type ImageData @model
+  @auth(rules: [
+    { allow: public },
+    { allow: private }
+    ])
+{
+  id: ID!
+  imageKey: String
+  rekognitionData: String
+  imageTypes: [String]
+}
+
+type Query {
+	process(imageKey: String!): ImageData @function(name: "rekognitionfunction-${env}")
+}
