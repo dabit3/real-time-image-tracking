@@ -3,7 +3,7 @@ const AppContext = React.createContext()
 
 class ContextProviderComponent extends React.Component {
   state = {
-    categories: ['Animal', 'Pet'],
+    categories: ['Animal'],
   }
 
   updateCategories = categories => {

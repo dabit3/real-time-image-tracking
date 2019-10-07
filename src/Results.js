@@ -16,11 +16,9 @@ class Results extends React.Component {
           const labels = JSON.parse(rekognitionData)
           const categories = labels.Labels.map(label => label.Name.toLowerCase())
           console.log('categories: ', categories)
-          console.log('tracking:', this.props.context.categories)
           this.props.context.categories.forEach(async c => {
             if (categories.includes(c.toLowerCase())) {
               const src = await Storage.get(imageKey)
-              console.log('image source: ', src)
               const label = categories.join(' or ')
               const imageInfo = {
                 label, src
@@ -42,7 +40,7 @@ class Results extends React.Component {
   render() {
     return (
       <div>
-        <p style={whiteText}>Currently tracking {this.props.context.categories.join(' & ')}</p>
+        <p style={whiteText}>Currently tracking: {this.props.context.categories.join(' & ')}</p>
         <input onChange={this.updateInput} value={this.state.input} style={inputStyle} placeholder="Update categories" />
         <button style={buttonStyle} onClick={this.updateCategories}>Update Categories</button>
         <button style={clearButtonStyle} onClick={this.clear}>Clear images</button>
@@ -51,7 +49,7 @@ class Results extends React.Component {
           this.state.images.map((image, index) => {
             return (
               <div key={index}>
-                <p>{image.label}</p>
+                <p style={label}>{image.label}</p>
                 <img
                   style={{ width: 600, height: 300 }}
                   src={image.src} />
@@ -64,9 +62,19 @@ class Results extends React.Component {
   }
 }
 
-const whiteText = {
+const label = {
   color: 'white',
-  margin: '18px 0px 20px'
+  fontFamily: 'sans-serif',
+  fontSize: 20,
+  fontWeight: 'bold'
+}
+
+const whiteText = {
+  fontFamily: 'sans-serif',
+  fontSize: 22,
+  color: 'white',
+  margin: '18px 0px 20px',
+  fontWeight: 'bold'
 }
 
 const inputStyle = {

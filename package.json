@@ -8,6 +8,7 @@
     "aws-amplify-react": "^2.4.4",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-icons": "^3.7.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "uuid": "^3.3.3"

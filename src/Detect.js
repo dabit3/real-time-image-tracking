@@ -53,8 +53,8 @@ class Detect extends React.Component {
           let height = stream.getVideoTracks()[0].getSettings().height
           let width = stream.getVideoTracks()[0].getSettings().width
           if (width > 1000) {
-            height = height / 1.5
-            width = width / 1.5
+            height = height / 2
+            width = width / 2
           }
           this.setState({
             streamWidth: width,
@@ -96,6 +96,11 @@ class Detect extends React.Component {
     console.log('diff: ', diff)
     if (diff > 10000) {
       console.log('movement detected...')
+      this.cancelTracking()
+      setTimeout(() => {
+        console.log('restarting tracking...')
+        this.startTracking()
+      }, 5000)
       this.saveImageFromCanvas()
     } else {
       console.log('No movement detected...')
@@ -122,7 +127,6 @@ class Detect extends React.Component {
           .then(data => {
             const rekognitionData = JSON.parse(data.data.process.rekognitionData)
             console.log('rekognitionData: ', rekognitionData)
-            
         })
         .catch(error => {
           console.log('error: ', error)
@@ -151,14 +155,24 @@ class Detect extends React.Component {
             marginLeft: -9999,
             height: !this.state.isSnapped || !this.state.showCamera ? '0px' : this.state.streamHeight
           }} id="canvas" width={this.state.streamWidth} height={this.state.streamHeight}></canvas>
-        <button style={buttonStyle} onClick={this.startTracking}>Start Tracking</button>
+        <div style={{...buttonStyle, ...withLoading}} onClick={this.startTracking}>
+          {/* <p style={textStyle} class="spinner">Tracking</p> */}
+          <p style={textStyle}>Start Tracking</p>
+        </div>
         <button style={stopTrackingButton} onClick={this.cancelTracking}>Stop Tracking</button>
       </div>
     )
   }
 }
 
+const textStyle = {
+  margin: 0,
+}
 
+const withLoading = {
+  display: 'inline-flex',
+  alignItems: 'flex-start'
+}
 
 const buttonStyle = {
   padding: '11px 40px',

@@ -27,10 +27,6 @@ exports.handler = function (event, context) { //eslint-disable-line
     MaxLabels: 10, 
     MinConfidence: 70
   };
-  
-  console.log('params from lambda::::', params)
-  console.log('endpoint: ', process.env.APPSYNC_ENDPOINT)
-  console.log('api key: ', process.env.APPSYNC_KEY)
 
   rekognition.detectLabels(params, function(err, data) {
     if (err) {

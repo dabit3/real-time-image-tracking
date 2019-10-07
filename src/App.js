@@ -21,7 +21,7 @@ function App() {
 }
 
 const appContainer = css`
-  width: 900px;
+  width: 600px;
   margin: 0 auto;
 `
 

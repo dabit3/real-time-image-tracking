@@ -12,7 +12,22 @@ code {
     monospace;
 }
 
+.spinner {
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+
 @font-face {
   font-family: 'Mr Robot';
   src: url('./assets/fonts/mrrobot.ttf');
 }
+
