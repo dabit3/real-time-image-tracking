@@ -9,7 +9,7 @@ class Nav extends React.Component {
     return (
       <div>
         <div>
-          <p css={mrRekognizer}>MR REKOGNIZER</p>
+          <p css={mrRekognizer}>REKOGNIZER</p>
         </div>
         <div css={navContainer}>
           <Link to='/detect' css={navItem}>
@@ -25,7 +25,7 @@ class Nav extends React.Component {
 }
 
 const mrRekognizer = css`
-  font-size: 70px;
+  font-size: 36px;
   margin-bottom: 10px;
   margin-top: 25px;
 `
