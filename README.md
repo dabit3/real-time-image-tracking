@@ -6,6 +6,36 @@
 
 This app will allow you to set a tracker on the types of items you'd like to detect. It will then check for movement, detect the item in the picture, and if the item is on the list of items being tracked, will display the image in an image feed.
 
+### To deploy this project
+
+1. Clone the repo & install the dependencies
+
+```sh
+git clone https://github.com/dabit3/real-time-image-tracking.git
+
+cd real-time-image-tracking
+
+npm install
+```
+
+2. Initialize & deploy the Amplify project
+
+```sh
+amplify init
+
+amplify push
+```
+
+3. Update the IAM policy associated with the Lambda function to have access to Rekognition as well as the S3 bucket (open the AWS console and open the Lambda function to see the associated role)
+
+4. Update the environment variables in the Lambda console: `BUCKET`, `APPSYNC_ENDPOINT`, and `APPSYNC_KEY`
+
+5. Run the project
+
+```sh
+npm start
+```
+
 ### Tools
 
 - React
