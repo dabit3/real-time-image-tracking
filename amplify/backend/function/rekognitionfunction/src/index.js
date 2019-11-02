@@ -1,5 +1,5 @@
 const AWS = require('aws-sdk')
-AWS.config.update({region: 'us-east-2'})
+AWS.config.update({region: process.env.REGION})
 const rekognition = new AWS.Rekognition()
 const axios = require('axios')
 const gql = require('graphql-tag')
