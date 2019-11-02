@@ -8,7 +8,13 @@ This app will allow you to set a tracker on the types of items you'd like to det
 
 ### To deploy this project
 
-1. Clone the repo & install the dependencies
+1. Update the [Amplify CLI](https://aws-amplify.github.io/docs/) to the latest version
+
+```sh
+$ npm install -g @aws-amplify/cli
+```
+
+2. Clone the repo & install the dependencies
 
 ```sh
 git clone https://github.com/dabit3/real-time-image-tracking.git
@@ -18,7 +24,7 @@ cd real-time-image-tracking
 npm install
 ```
 
-2. Initialize & deploy the Amplify project
+3. Initialize & deploy the Amplify project
 
 ```sh
 amplify init
@@ -26,11 +32,13 @@ amplify init
 amplify push
 ```
 
-3. Update the IAM policy associated with the Lambda function to have access to Rekognition as well as the S3 bucket (open the AWS console and open the Lambda function to see the associated role)
+4. Update the IAM policy associated with the Lambda function to have access to Rekognition as well as the S3 bucket (open the AWS console and open the Lambda function to see the associated role)
 
-4. Update the environment variables in the Lambda console: `BUCKET`, `APPSYNC_ENDPOINT`, and `APPSYNC_KEY`
+Function name can be found in `amplify/backend/function/rekognitionfunction-<environment-name>`
 
-5. Run the project
+5. Update the environment variables in the Lambda console: `BUCKET`, `APPSYNC_ENDPOINT`, and `APPSYNC_KEY`. All of these values can be found in `aws-exports.js`
+
+6. Run the project
 
 ```sh
 npm start
